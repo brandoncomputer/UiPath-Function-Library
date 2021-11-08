@@ -1,13 +1,13 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Ascii_Character_Value" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Value__Fractional" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sma="clr-namespace:System.Management.Automation;assembly=System.Management.Automation" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="out_Character" Type="OutArgument(x:String)" />
-    <x:Property Name="in_Ascii" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_Double" Type="InArgument(x:Double)" />
+    <x:Property Name="out_Fraction" Type="OutArgument(x:Int32)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1013,460</sap:VirtualizedContainerService.HintSize>
-  <sap2010:WorkflowViewState.IdRef>Ascii_Character_Value_1</sap2010:WorkflowViewState.IdRef>
+  <sap:VirtualizedContainerService.HintSize>1013,647</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Value__Fractional_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -31,10 +31,12 @@
       <x:String>UiPath.Core</x:String>
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
       <x:String>System.Collections.ObjectModel</x:String>
-      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Management.Automation</x:String>
+      <x:String>System.Dynamic</x:String>
       <x:String>System.Reflection</x:String>
-      <x:String>System.Text</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -55,38 +57,34 @@
       <AssemblyReference>System.Xaml</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
-      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Management.Automation</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>UiPath.Excel</AssemblyReference>
-      <AssemblyReference>System.Text.Encoding.CodePages</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Returns the ascii number of a character." DisplayName="Character_Ascii_Value" sap:VirtualizedContainerService.HintSize="376,345" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Value__Fractional" sap:VirtualizedContainerService.HintSize="376,282" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap2010:Annotation.AnnotationText="" DisplayName="Assign Ascii" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="Assign_1">
-      <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[out_Character]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[Convert.ToChar(Convert.ToByte(in_Ascii)).ToString]</InArgument>
-      </Assign.Value>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </Assign>
-    <ui:LogMessage DisplayName="Ascii Character Value Complete" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Ascii Character Value Complete&quot;]" />
+    <ui:InvokePowerShell x:TypeArguments="sma:PSObject" ContinueOnError="{x:Null}" CommandText="   $double = $double | Out-String &#xD;&#xA;&#xD;&#xA;   $frac = [int]($double.split('.')[1]/1)" DisplayName="Invoke Power Shell - Value, Fractional" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="InvokePowerShell`1_1" IsScript="True">
+      <ui:InvokePowerShell.PowerShellVariables>
+        <InArgument x:TypeArguments="x:Double" x:Key="double">
+          <mva:VisualBasicValue x:TypeArguments="x:Double" ExpressionText="in_Double" />
+        </InArgument>
+        <OutArgument x:TypeArguments="x:Int32" x:Key="frac">
+          <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="out_Fraction" />
+        </OutArgument>
+      </ui:InvokePowerShell.PowerShellVariables>
+    </ui:InvokePowerShell>
+    <ui:LogMessage DisplayName="Log Message - Value, Frac" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Value, Fractional Completed&quot;]" />
   </Sequence>
 </Activity>

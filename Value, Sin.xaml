@@ -1,13 +1,13 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Ascii_Character_Value" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Value__Sin" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_Character" Type="InArgument(x:String)" />
-    <x:Property Name="out_Ascii" Type="OutArgument(x:Int32)" />
+    <x:Property Name="in_Double" Type="InArgument(x:Double)" />
+    <x:Property Name="out_Sin" Type="OutArgument(x:Double)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1013,460</sap:VirtualizedContainerService.HintSize>
-  <sap2010:WorkflowViewState.IdRef>Ascii_Character_Value_1</sap2010:WorkflowViewState.IdRef>
+  <sap:VirtualizedContainerService.HintSize>1013,647</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Value__Sin_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -34,7 +34,6 @@
       <x:String>System.Collections.ObjectModel</x:String>
       <x:String>System.Runtime.InteropServices</x:String>
       <x:String>System.Reflection</x:String>
-      <x:String>System.Text</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -61,27 +60,24 @@
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>UiPath.Excel</AssemblyReference>
-      <AssemblyReference>System.Text.Encoding.CodePages</AssemblyReference>
-      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Returns the character from an ascii value." DisplayName="Ascii_Character_Value" sap:VirtualizedContainerService.HintSize="376,314" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Value__Sin" sap:VirtualizedContainerService.HintSize="376,283" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign DisplayName="Assign Ascii" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign DisplayName="Assign - Sin" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
-        <OutArgument x:TypeArguments="x:Int32">[out_Ascii]</OutArgument>
+        <OutArgument x:TypeArguments="x:Double">[out_Sin]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:Byte">[Convert.ToByte(Convert.ToChar(in_Character))]</InArgument>
+        <InArgument x:TypeArguments="x:Double">[Math.Sin(in_Double)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:LogMessage DisplayName="&quot;Character Ascii Value Complete&quot;" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Character Ascii Value Complete&quot;]" />
+    <ui:LogMessage DisplayName="Log Message - Sin" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Value, Sin completed&quot;]" />
   </Sequence>
 </Activity>
