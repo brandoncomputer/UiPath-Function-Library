@@ -10,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1013,647</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>850,510</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>File__Create_Shortcut_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -65,35 +65,30 @@
       <AssemblyReference>System.Management.Automation</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="File__Create_Shortcut" sap:VirtualizedContainerService.HintSize="376,151" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="File__Create_Shortcut" sap:VirtualizedContainerService.HintSize="376,282" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokePowerShell x:TypeArguments="sma:PSObject" ContinueOnError="{x:Null}" CommandText="$Shell = New-Object -ComObject ('WScript.Shell')&#xD;&#xA;   $ShortCut = $Shell.CreateShortcut($ShortCutName)&#xD;&#xA;   $ShortCut.TargetPath=$Target&#xD;&#xA;   $ShortCut.Arguments=$Arguments&#xD;&#xA;   $ShortCut.WorkingDirectory = $WorkingDirectory&#xD;&#xA;   $ShortCut.WindowStyle = 1;&#xD;&#xA;   $ShortCut.Hotkey = ''&#xD;&#xA;   $ShortCut.IconLocation = $Icon&#xD;&#xA;   $ShortCut.DESCRIPTION = $Description&#xD;&#xA;   $ShortCut.Save()" DisplayName="Invoke Power Shell" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="InvokePowerShell`1_1" IsScript="True">
+    <ui:InvokePowerShell x:TypeArguments="sma:PSObject" ContinueOnError="{x:Null}" CommandText="$Shell = New-Object -ComObject ('WScript.Shell')&#xA;   $ShortCut = $Shell.CreateShortcut($ShortCutName)&#xA;   $ShortCut.TargetPath=$Target&#xA;   $ShortCut.Arguments=$Arguments&#xA;   $ShortCut.WorkingDirectory = $WorkingDirectory&#xA;   $ShortCut.WindowStyle = 1;&#xA;   $ShortCut.Hotkey = ''&#xA;   $ShortCut.IconLocation = $Icon&#xA;   $ShortCut.DESCRIPTION = $Description&#xA;   $ShortCut.Save()" DisplayName="Invoke Power Shell - Create Shortcut" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="InvokePowerShell`1_1" IsScript="True">
       <ui:InvokePowerShell.PowerShellVariables>
-        <InArgument x:TypeArguments="x:String" x:Key="ShortCutName">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Shortcut" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="Target">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Target" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="Arguments">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Arguments" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="WorkingDirectory">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_WorkingDirectory" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="Icon">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Icon" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="Description">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Description" />
-        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="ShortCutName">[in_Shortcut]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="Target">[in_Target]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="Arguments">[in_Arguments]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="WorkingDirectory">[in_WorkingDirectory]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="Icon">[in_Icon]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="Description">[in_Description]</InArgument>
       </ui:InvokePowerShell.PowerShellVariables>
     </ui:InvokePowerShell>
+    <ui:LogMessage DisplayName="Log Message - Create Shortcut Complete" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Create Shortcut Complete&quot;]" />
   </Sequence>
 </Activity>

@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>850,647</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>850,510</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>String__Position_of_String_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -79,6 +79,6 @@
         <InArgument x:TypeArguments="x:Int32">[in_String.IndexOf(in_Search)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;String, Position of String Completed&quot;]" />
+    <ui:LogMessage DisplayName="Log Message - Pos" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;String, Position of String Completed&quot;]" />
   </Sequence>
 </Activity>
